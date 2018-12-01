@@ -4,7 +4,7 @@
 	<pages>
 		<Page title="{i18n>appTitle}">
 			<content>
-				<Button text="button" />
+				<Button text="button" press="showHello" />
 			</content>
 		</Page>
 	</pages>

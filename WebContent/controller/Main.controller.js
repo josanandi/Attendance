@@ -1,13 +1,17 @@
 /*global location history */
 sap.ui.define([
-		"sap/ui/core/mvc/Controller"
-	], function (Controller) {
+		"sap/ui/core/mvc/Controller",
+		"sap/m/MessageToast"
+	], function (Controller,MessageToast) {
 		"use strict";
 
 		return Controller.extend("com.work.attendance.controller.Main", {
 			
 			onInit : function () {
 				var oModel;
+			},
+			showHello : function() {
+				MessageToast.show("helloka");
 			}
 		});
     }
