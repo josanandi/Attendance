@@ -2,7 +2,7 @@
 		controllerName="com.work.attendance.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml">
 <App id="appId" >
 	<pages>
-		<Page title="Hello">
+		<Page title="">
 			<content>
 	
 			</content>
