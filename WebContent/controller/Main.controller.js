@@ -4,7 +4,7 @@ sap.ui.define([
 	], function (Controller) {
 		"use strict";
 
-		return BaseController.extend("com.work.attendance.controller.Main", {
+		return Controller.extend("com.work.attendance.controller.Main", {
 			
 			onInit : function () {
 				var oModel;
