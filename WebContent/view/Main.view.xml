@@ -8,7 +8,7 @@
 					<IconTabBar class="sapUiResponsiveContentPadding" >
 						<items>
 							<IconTabFilter text="First page" icon="sap-icon://nutrition-activity" >
-								<Label text="text" />
+								<Label text="{attendances>/attendaces/0/dailyTask/description}" />
 							</IconTabFilter>
 							<IconTabFilter text="Add Attendance" icon="sap-icon://nutrition-activity" >
 								<Label text="text" />
