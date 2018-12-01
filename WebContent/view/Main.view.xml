@@ -2,9 +2,10 @@
 		controllerName="com.work.attendance.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml">
 <App id="appId" >
 	<pages>
-		<Page title="">
+
+		<Page title="{i18n>appTitle}">
 			<content>
-	
+				<Button text="button" />
 			</content>
 		</Page>
 	</pages>
