@@ -1,10 +1,12 @@
 <core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
-		controllerName="attendance.main" xmlns:html="http://www.w3.org/1999/xhtml">
+		controllerName="com.work.attendance.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml">
 <App id="appId" >
-	<Page title="Title">
-		<content>
+	<pages>
+		<Page title="Title">
+			<content>
 	
-		</content>
-	</Page>
+			</content>
+		</Page>
+	</pages>
 </App>
 </core:View>
