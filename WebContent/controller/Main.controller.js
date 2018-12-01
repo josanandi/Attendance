@@ -7,7 +7,7 @@ sap.ui.define([
 		return BaseController.extend("com.work.attendance.controller.Main", {
 			
 			onInit : function () {
-
+				var oModel;
 			}
 		});
     }
