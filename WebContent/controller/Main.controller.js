@@ -7,10 +7,7 @@ sap.ui.define([
 
 		return Controller.extend("com.work.attendance.controller.Main", {
 			
-			onInit : function () {
-				
-			    //var oModel = new sap.ui.model.json.JSONModel("file:///C:/Users/julia.gondocs/OneDrive%20-%20Accenture/SAPUI5/Project/Attendance/Attendance.json");
-			    
+			onInit : function () {   
 	            var oModel= new sap.ui.model.json.JSONModel();
 	            oModel.loadData("./Attendance.json");
 			    this.getView().setModel(oModel,"attendances");
