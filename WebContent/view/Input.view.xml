@@ -1,0 +1,51 @@
+<mvc:View
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form">
+
+	<Panel
+		class="sapUiResponsiveMargin"
+		width="auto"
+		headerText="{i18n>inputData}"
+		expandable="{device>/system/phone}"
+		expanded="true">
+		<content>
+		<f:SimpleForm 
+					id="form"
+					editable="true"
+					maxContainerCols="1"
+					layout="ResponsiveLayout"
+					labelSpanXL="6"
+					labelSpanL="6"
+					labelSpanM="12"
+					labelSpanS="12"
+					adjustLabelSpan = "true"
+					emptySpanXL = "0"
+					emptySpanL = "0"
+					emptySpanM = "0"
+					emptySpanS = "0"
+					minWidth="0"
+					width="100%"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					>
+			<Label text="Start date and time" labelFor="logon"></Label>
+			<DateTimePicker id="logon" width="320px">
+			</DateTimePicker>
+			<Label text = "Activity" labelFor = "activity"> </Label>
+			<TextArea id="activity" width="320px"></TextArea>
+			<Label text = "Location" labelFor = "location"> </Label>
+			<Input
+				id="location"
+				type="Text"
+				width="320px">
+					</Input>
+			<Label text="End date and time" labelFor="logout"></Label>
+			<DateTimePicker id="logout" width="320px">
+			</DateTimePicker>
+			</f:SimpleForm>
+		</content>
+	</Panel>
+
+</mvc:View>

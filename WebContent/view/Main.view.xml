@@ -15,6 +15,9 @@
 							</IconTabFilter>
 						</items>
 					</IconTabBar>
+					
+					<mvc:XMLView viewName="com.work.attendance.view.Input"/>
+				
 			</content>
 		</Page>
 	</pages>
