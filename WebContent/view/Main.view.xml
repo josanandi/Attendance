@@ -5,8 +5,16 @@
 
 		<Page title="{i18n>appTitle}">
 			<content>
-				<Button text="button" press="showHello" />
-				
+					<IconTabBar class="sapUiResponsiveContentPadding" >
+						<items>
+							<IconTabFilter text="First page" icon="sap-icon://nutrition-activity" >
+								<Label text="text" />
+							</IconTabFilter>
+							<IconTabFilter text="Add Attendance" icon="sap-icon://nutrition-activity" >
+								<Label text="text" />
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
 			</content>
 		</Page>
 	</pages>
