@@ -1,0 +1,80 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="com.work.attendance.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml">
+<App id="appId" >
+	<pages>
+		<Page title="{i18n>appTitle}">
+			<content>
+					<IconTabBar class="sapUiResponsiveContentPadding" >
+						<items>
+							<IconTabFilter text="Your attendances" icon="sap-icon://nutrition-activity" >
+								<Table id="attendanceTable"
+										items="{
+											path: 'attendances>/attendances' }"
+										updateFinished="onUpdateFinished"> 
+										<!--  updateFinished="onUpdateFinished" -->
+										<headerToolbar>
+											<Toolbar>
+												<content>
+													<Title text="Your Attendances" level="H2" />
+													<ToolbarSpacer/>
+													<SearchField width="40%" search="onFilterInvoices" placeholder="Search for tasks"/>
+												</content>
+											</Toolbar>
+										</headerToolbar>
+										<columns>
+											<Column>
+												<Text text="{i18n>main.startat}" />
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true">
+												<Text text="{i18n>main.endat}" />
+											</Column>
+											<Column minScreenWidth="Desktop" demandPopin="true">
+												<Text text="{i18n>main.location}" />
+											</Column>
+											<Column >
+												<Text text="{i18n>main.tasktitle}" />
+											</Column>
+											<Column >
+												<Text text="{i18n>main.workduration}" />
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem press="onListItemPressed"
+												type="Navigation">
+												   <customData>
+													 <core:CustomData key="mydata" value="{attendances>location}" writeToDom="true"></core:CustomData>
+												   </customData>
+												<cells>
+													<Label text="{attendances>start}"/>
+													<Label text="{attendances>end}" />
+													<Text text="{attendances>location}" />
+													<Text text="{attendances>dailyTask/title}" />
+													<!--  <Text text="{attendances>workedHours}" /> -->
+ 													<Text  text="{
+															parts: [
+																 'attendances>start',
+																	   'attendances>end' 
+															],
+														formatter : '.formatter.workDuration'
+														}"/> 
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+							</IconTabFilter>
+							<IconTabFilter text="Add Attendance" icon="sap-icon://nutrition-activity" >
+								<mvc:XMLView viewName="com.work.attendance.view.Input"/>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+			</content>
+			<footer>
+				<Toolbar>
+					<ToolbarSpacer />
+						<Text text="{attendanceModel>/date}"/>
+				</Toolbar>
+			</footer>
+		</Page>
+	</pages>
+</App>
+</core:View>

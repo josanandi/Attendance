@@ -2,25 +2,41 @@
 <html>
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+		<meta charset="utf-8">
+		<title>Work Attendance Tracker</title>
 
-		<script src="resources/sap-ui-core.js"
-				id="sap-ui-bootstrap"
-				data-sap-ui-libs="sap.m"
-				data-sap-ui-theme="sap_bluecrystal">
+		<script 
+			id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-bindingSyntax="complex"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-preload="async"
+			data-sap-ui-resourceroots='{"com.work.attendance": "./"}'>
 		</script>
-		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		
+		<link rel="stylesheet" href="css/style.css">
 
 		<script>
-				sap.ui.localResources("attendance");
-				var app = new sap.m.App({initialPage:"idmain1"});
-				var page = sap.ui.view({id:"idmain1", viewName:"attendance.main", type:sap.ui.core.mvc.ViewType.XML});
-				app.addPage(page);
-				app.placeAt("content");
+		sap.ui.getCore().attachInit(function () {
+			sap.ui.require([
+				"sap/m/Shell",
+				"sap/ui/core/ComponentContainer"
+			], function ( Shell, ComponentContainer) {
+				new Shell({
+					app : new ComponentContainer({
+						name : "com.work.attendance",
+						settings : {
+							id : "nav"
+						}
+					})
+				}).placeAt("content");
+			});
+		});
 		</script>
 
 	</head>
-	<body class="sapUiBody" role="application">
-		<div id="content"></div>
+	<body class="sapUiBody" id="content">
 	</body>
 </html>
