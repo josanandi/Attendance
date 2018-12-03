@@ -9,7 +9,9 @@
 							<IconTabFilter text="Your attendances" icon="sap-icon://nutrition-activity" >
 								<Table id="attendanceTable"
 										items="{
-											path: 'attendances>/attendances' }">
+											path: 'attendances>/attendances' }"
+										updateFinished="onUpdateFinished"> 
+										<!--  updateFinished="onUpdateFinished" -->
 										<headerToolbar>
 											<Toolbar>
 												<content>
@@ -29,14 +31,10 @@
 											<Column minScreenWidth="Desktop" demandPopin="true">
 												<Text text="{i18n>main.location}" />
 											</Column>
-											<Column minScreenWidth="Desktop" demandPopin="true"
-												hAlign="Left">
-												<Text text="{i18n>main.taskdescription}" />
-											</Column>
-											<Column hAlign="End">
+											<Column >
 												<Text text="{i18n>main.tasktitle}" />
 											</Column>
-											<Column hAlign="End">
+											<Column >
 												<Text text="{i18n>main.workduration}" />
 											</Column>
 										</columns>
@@ -50,15 +48,15 @@
 													<Label text="{attendances>start}"/>
 													<Label text="{attendances>end}" />
 													<Text text="{attendances>location}" />
-													<Text text="{attendances>dailyTask/description}" />
 													<Text text="{attendances>dailyTask/title}" />
-													<Text  text="{
+													<!--  <Text text="{attendances>workedHours}" /> -->
+ 													<Text  text="{
 															parts: [
 																 'attendances>start',
 																	   'attendances>end' 
 															],
 														formatter : '.formatter.workDuration'
-														}"/>
+														}"/> 
 												</cells>
 											</ColumnListItem>
 										</items>
@@ -69,10 +67,13 @@
 							</IconTabFilter>
 						</items>
 					</IconTabBar>
-					
-					
-				
 			</content>
+			<footer>
+				<Toolbar>
+					<ToolbarSpacer />
+						<Text text="{attendanceModel>/date}"/>
+				</Toolbar>
+			</footer>
 		</Page>
 	</pages>
 </App>

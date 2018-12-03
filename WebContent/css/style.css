@@ -1,8 +1,10 @@
-tr[data-mydata="Budapest"]{	
-  background:   #c0fce7!important;
+
+
+.overtime{
+	background: #ff0000!important;
 }
-		
-tr[data-mydata="Bratislava"]{
-  background: #ff7777!important;
+
+.correcttime {
+	backgruond : #00ff00!important;
 }
 
