@@ -1,10 +1,10 @@
 <mvc:View
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:f="sap.ui.layout.form">
+	xmlns:f="sap.ui.layout.form"
+	controllerName="com.work.attendance.controller.Input">
 
-	<Panel
-		class="sapUiResponsiveMargin"
+	<Panel class="sapUiResponsiveMargin"
 		width="auto"
 		headerText="{i18n>inputData}"
 		expandable="{device>/system/phone}"
@@ -30,22 +30,93 @@
 					columnsL="1"
 					columnsM="1"
 					>
-			<Label text="Start date and time" labelFor="logon"></Label>
-			<DateTimePicker id="logon" width="320px">
+			<Label text="{i18n>inputStartDate}" labelFor="logon"></Label>
+			<DateTimePicker id="logon" width="320px" valueFormat="yyyy-MM-dd HH:mm">
 			</DateTimePicker>
-			<Label text = "Activity" labelFor = "activity"> </Label>
-			<TextArea id="activity" width="320px"></TextArea>
-			<Label text = "Location" labelFor = "location"> </Label>
-			<Input
-				id="location"
-				type="Text"
-				width="320px">
-					</Input>
-			<Label text="End date and time" labelFor="logout"></Label>
-			<DateTimePicker id="logout" width="320px">
+			
+			<Label text = "{i18n>inputActivityTitle}" labelFor = "activityTitle"> </Label>
+			<Input id="activityTitle" type = "Text" width="320px" ></Input>
+			
+			<Label text = "{i18n>inputActivityDescription}" labelFor = "activityDescription"> </Label>
+			<TextArea id="activityDescription" width="320px"></TextArea>
+			
+			<Label text = "{i18n>inputLocation}" labelFor = "location"> </Label>
+			<Input id="location" type="Text" width="320px"></Input>
+			
+			<Label text="{i18n>inputEndDate}" labelFor="logout"></Label>
+			<DateTimePicker id="logout" width="320px" valueFormat="yyyy-MM-dd HH:mm">
 			</DateTimePicker>
 			</f:SimpleForm>
+			
+			<Bar>
+				<contentRight>
+					<Button
+						id="saveButton"
+						text="Save"
+						icon="sap-icon://save"
+						type="Accept"
+						press="record">
+						
+					</Button>
+					<Button
+						id="cancelButton"
+						text="Cancel"
+						icon="sap-icon://decline"
+						type="Reject"
+						press="reset">
+						
+					</Button>
+				</contentRight>
+			</Bar>
 		</content>
+		
+			<Table 
+				id="attendanceData"
+				inset="false"
+				items="{path: 'attendances>/attendances'}">
+					<headerToolbar>
+						<Toolbar>
+							<content>
+								<Title text="Time records" level="H2"/>
+							</content>
+						</Toolbar>
+							
+					</headerToolbar>
+				
+					<columns>
+						<Column>
+							<Text text="{i18n>main.startat}" />
+						</Column>
+						
+						<Column
+						demandPopin="true">
+							<Text text="{i18n>main.endat}" />
+						</Column>
+						<Column>
+							<Text text="{i18n>main.location}" />
+						</Column>
+						<Column>
+							<Text text="{i18n>main.tasktitle}" />
+						</Column>
+						<Column>
+							<Text text="{i18n>main.taskdescription}" />
+						</Column>
+					</columns>
+						<items>
+							<ColumnListItem
+								type="Active"
+								press="onPress">
+								<cells>
+									<Label design = "Bold" text="{attendances>start}"/>
+									<Text text="{attendances>end}" />
+									<Text text="{attendances>location}" />
+									<Text text ="{attendances>dailyTask/title}"/>
+									<Text text ="{attendances>dailyTask/description}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+				</Table>
+		
 	</Panel>
 
 </mvc:View>
