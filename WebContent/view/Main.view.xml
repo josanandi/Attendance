@@ -10,7 +10,8 @@
 								<Table id="attendanceTable"
 										items="{
 											path: 'attendances>/attendances' }"
-											updateFinished="onUpdateFinished" >
+										updateFinished="onUpdateFinished"> 
+										<!--  updateFinished="onUpdateFinished" -->
 										<headerToolbar>
 											<Toolbar>
 												<content>

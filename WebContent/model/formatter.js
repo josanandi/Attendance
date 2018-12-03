@@ -9,7 +9,6 @@ sap.ui.define([
 				var myStartDate = new Date(sStart);
 				var myEndDate = new Date(sEnd);
 				iResult=(myEndDate.getHours())-(myStartDate.getHours());
-				
 				return iResult;
 			}
 		};

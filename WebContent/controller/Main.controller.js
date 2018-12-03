@@ -23,12 +23,15 @@ sap.ui.define([
 			onUpdateFinished: function() {
 				var oTable = this.getView().byId("attendanceTable");
 				var row;
-				var cells = [];
+				var cell ;
 				for(row = 0; row < oTable.getItems().length; row++)
 				{
-				        cells = oTable.getItems()[row].getCells()[4].getText(); // Would contain all cells in the table
-				        oTable.getItems()[row].addStyleClass("overtime");
-
+				        cell = oTable.getItems()[row].getCells()[4].getText(); // Would contain all cells in the table
+				        if(cell == 8 ){ 
+				        	oTable.getItems()[row].addStyleClass("overtime");
+				        } else {
+				        	oTable.getItems()[row].addStyleClass("correcttime");
+				        }
 				}
 			},
 			showHello : function() {

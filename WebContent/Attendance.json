@@ -1,7 +1,7 @@
 {
 	"attendances": [{
 		"start": "2018-10-01 08:00",
-		"end": "2018-10-01 16:00",
+		"end": "2018-10-01 12:00",
 		"dailyTask": {
 			"title": "UI5 Training",
 			"description": "Learn UI5 basics"
@@ -17,7 +17,7 @@
 		"location": "Budapest"
 	}, {
 		"start": "2018-10-03 08:00",
-		"end": "2018-10-02 16:00",
+		"end": "2018-10-02 14:00",
 		"dailyTask": {
 			"title": "Test your application",
 			"description": "Test your application"
@@ -33,7 +33,7 @@
 		"location": "Bratislava"
 	}, {
 		"start": "2018-10-05 08:00",
-		"end": "2018-10-02 16:00",
+		"end": "2018-10-02 12:00",
 		"dailyTask": {
 			"title": "Close your week",
 			"description": "You are expert now!!!"
