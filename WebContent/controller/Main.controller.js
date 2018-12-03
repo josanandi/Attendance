@@ -12,6 +12,7 @@ sap.ui.define([
 			onInit : function () {   
 	            var oModel= new sap.ui.model.json.JSONModel();
 	            oModel.loadData("./Attendance.json");
+	            oModel.setProperty();
 			    this.getView().setModel(oModel,"attendances");
 			    
 			    

@@ -43,6 +43,9 @@
 										<items>
 											<ColumnListItem press="onListItemPressed"
 												type="Navigation">
+												   <customData>
+													 <core:CustomData key="mydata" value="{attendances>location}" writeToDom="true"></core:CustomData>
+												   </customData>
 												<cells>
 													<Label text="{attendances>start}"/>
 													<Label text="{attendances>end}" />
