@@ -9,7 +9,8 @@
 							<IconTabFilter text="Your attendances" icon="sap-icon://nutrition-activity" >
 								<Table id="attendanceTable"
 										items="{
-											path: 'attendances>/attendances' }">
+											path: 'attendances>/attendances' }"
+											updateFinished="onUpdateFinished" >
 										<headerToolbar>
 											<Toolbar>
 												<content>

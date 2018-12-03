@@ -20,9 +20,16 @@ sap.ui.define([
 			    this.getView().setModel(oViewModel,"attendanceModel");
 
 			},
-			onAfterRendering: function() {
-				var aData = this.getView().getModel("attendances").getData().attendance;
-				alert(aData);
+			onUpdateFinished: function() {
+				var oTable = this.getView().byId("attendanceTable");
+				var row;
+				var cells = [];
+				for(row = 0; row < oTable.getItems().length; row++)
+				{
+				        cells = oTable.getItems()[row].getCells()[4].getText(); // Would contain all cells in the table
+				        oTable.getItems()[row].addStyleClass("overtime");
+
+				}
 			},
 			showHello : function() {
 				MessageToast.show("helloka");
