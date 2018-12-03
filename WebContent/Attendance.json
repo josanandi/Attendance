@@ -1,18 +1,42 @@
 {
-	"attendaces": [{
+	"attendances": [{
 		"start": "2018-10-01 08:00",
 		"end": "2018-10-01 16:00",
 		"dailyTask": {
-			"title": "Task Title",
-			"description": "Description"
+			"title": "UI5 Training",
+			"description": "Learn UI5 basics"
 		},
 		"location": "Budapest"
 	}, {
 		"start": "2018-10-02 08:00",
 		"end": "2018-10-02 16:00",
 		"dailyTask": {
-			"title": "Task Title",
-			"description": "Description"
+			"title": "Make UI5 application",
+			"description": "Made UI5 application during the training"
+		},
+		"location": "Budapest"
+	}, {
+		"start": "2018-10-03 08:00",
+		"end": "2018-10-02 16:00",
+		"dailyTask": {
+			"title": "Test your application",
+			"description": "Test your application"
+		},
+		"location": "Budapest"
+	}, {
+		"start": "2018-10-04 08:00",
+		"end": "2018-10-02 16:00",
+		"dailyTask": {
+			"title": "Present the made app",
+			"description": "Made a presentation about your UI5 application"
+		},
+		"location": "Bratislava"
+	}, {
+		"start": "2018-10-05 08:00",
+		"end": "2018-10-02 16:00",
+		"dailyTask": {
+			"title": "Close your week",
+			"description": "You are expert now!!!"
 		},
 		"location": "Budapest"
 	}]
