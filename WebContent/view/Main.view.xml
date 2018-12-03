@@ -9,9 +9,10 @@
 							<IconTabFilter text="Your attendances" icon="sap-icon://nutrition-activity" >
 								<Table id="attendanceTable"
 										items="{
-											path: 'attendances>/attendances' }"
+											path: 'attendances>/ATTENDANCESet' }"
 										updateFinished="onUpdateFinished"> 
 										<!--  updateFinished="onUpdateFinished" -->
+										
 										<headerToolbar>
 											<Toolbar>
 												<content>
@@ -45,10 +46,10 @@
 													 <core:CustomData key="mydata" value="{attendances>location}" writeToDom="true"></core:CustomData>
 												   </customData>
 												<cells>
-													<Label text="{attendances>start}"/>
-													<Label text="{attendances>end}" />
-													<Text text="{attendances>location}" />
-													<Text text="{attendances>dailyTask/title}" />
+													<Label text="{attendances>Zstart}"/>
+													<Label text="{attendances>Zend}" />
+													<Text text="{attendances>Location}" />
+													<Text text="{attendances>Dailytasktitle}" />
 													<!--  <Text text="{attendances>workedHours}" /> -->
  													<Text  text="{
 															parts: [

@@ -9,7 +9,7 @@
 		"location": "Budapest"
 	}, {
 		"start": "2018-10-02 08:00",
-		"end": "2018-10-02 16:00",
+		"end": "2018-10-02 18:00",
 		"dailyTask": {
 			"title": "Make UI5 application",
 			"description": "Made UI5 application during the training"
@@ -25,7 +25,7 @@
 		"location": "Budapest"
 	}, {
 		"start": "2018-10-04 08:00",
-		"end": "2018-10-02 16:00",
+		"end": "2018-10-02 17:00",
 		"dailyTask": {
 			"title": "Present the made app",
 			"description": "Made a presentation about your UI5 application"
