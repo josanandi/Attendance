@@ -9,7 +9,7 @@
 							<IconTabFilter text="Your attendances" icon="sap-icon://nutrition-activity" >
 								<Table id="attendanceTable"
 										items="{
-											path: 'attendances>/ATTENDANCESet' }"
+											path: 'attendances>/attendances' }"
 										updateFinished="onUpdateFinished"> 
 										<!--  updateFinished="onUpdateFinished" -->
 										
@@ -18,7 +18,8 @@
 												<content>
 													<Title text="Your Attendances" level="H2" />
 													<ToolbarSpacer/>
-													<SearchField width="40%" search="onFilterInvoices" placeholder="Search for tasks"/>
+													<SearchField width="40%" id="searchField" search="onFilterInvoices" placeholder="Search for tasks title"/>
+													<Button icon="sap-icon://sort" press="onPressSorting"/>
 												</content>
 											</Toolbar>
 										</headerToolbar>
@@ -46,10 +47,10 @@
 													 <core:CustomData key="mydata" value="{attendances>location}" writeToDom="true"></core:CustomData>
 												   </customData>
 												<cells>
-													<Label text="{attendances>Zstart}"/>
-													<Label text="{attendances>Zend}" />
-													<Text text="{attendances>Location}" />
-													<Text text="{attendances>Dailytasktitle}" />
+													<Label text="{attendances>start}"/>
+													<Label text="{attendances>end}" />
+													<Text text="{attendances>location}" />
+													<Text text="{attendances>dailyTask/title}" />
 													<!--  <Text text="{attendances>workedHours}" /> -->
  													<Text  text="{
 															parts: [

@@ -69,7 +69,7 @@
 				</contentRight>
 			</Bar>
 		</content>
-		
+		<Panel expandable="true">
 			<Table 
 				id="attendanceData"
 				inset="false"
@@ -116,7 +116,7 @@
 							</ColumnListItem>
 						</items>
 				</Table>
-		
+		</Panel>
 	</Panel>
 
 </mvc:View>
