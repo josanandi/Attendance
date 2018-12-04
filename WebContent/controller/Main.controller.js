@@ -6,14 +6,15 @@ sap.ui.define([
 		"sap/m/MessageToast",
 		"sap/ui/model/Filter",
 		"sap/ui/model/FilterOperator",
-		"sap/ui/model/FilterType"
-	], function (formatter,ODataModel,Controller,MessageToast, Filter,FilterOperator,FilterType) {
+		"sap/ui/model/FilterType",
+		"sap/ui/model/Sorter"
+	], function (formatter,ODataModel,Controller,MessageToast, Filter,FilterOperator,FilterType,Sorter) {
 		"use strict";
 
 		return Controller.extend("com.work.attendance.controller.Main", {
-			
 			formatter: formatter,
-			onInit : function () {   
+			onInit : function () {  
+				this.bOrder = false;
 	            var oModel= new sap.ui.model.json.JSONModel();
 	            oModel.loadData("./Attendance.json");
 			    this.getView().setModel(oModel,"attendances");
@@ -44,6 +45,7 @@ sap.ui.define([
 				        	oTable.getItems()[row].addStyleClass("overtime");
 				        } 
 				}
+				
 			},
 			showHello : function() {
 				MessageToast.show("helloka");
@@ -57,7 +59,83 @@ sap.ui.define([
 				MessageToast.show("Filtered for: " + sValue);
 			},
 			onPressSorting: function() {
+				var oView = this.getView();
+				var oTable = oView.byId("attendanceTable").getBinding("items");
+					oTable.sort(new Sorter("attendances>location", this.bOrder));
+
+				this.bOrder = !this.bOrder;
 				
+			},
+			
+			
+			
+			goTo2: function() {
+				var oView = this.getView();
+				var oIconTab = oView.byId("iconTabBar");
+
+				if(oView.byId("firstInput").getValue() > 10) {
+					oIconTab.getItems()[4].setEnabled(true);
+					oIconTab.setSelectedKey("2"); // enter to the next tab
+					this._refreshIndicator("33%",33,"Error");
+				} else {
+					oView.byId("firstInput").setValueState("Error");
+				}
+				
+			},
+			goTo3: function() {
+				var oView = this.getView();
+				var oIconTab = oView.byId("iconTabBar");
+				
+				if(oView.byId("secondInput").getValue() === "envelope") {
+					oIconTab.getItems()[5].setEnabled(true);
+					oIconTab.setSelectedKey("3"); // enter to the next tab
+					this._refreshIndicator("66%",66,"Warning");
+				} else {
+					oView.byId("secondInput").setValueState("Error");
+				}
+				
+			},
+			goTo4: function() {
+				var oView = this.getView();
+				var oIconTab = oView.byId("iconTabBar");
+				
+				if(oView.byId("thirdQuestion").getSelectedKey() === "neither") {
+					oIconTab.getItems()[6].setEnabled(true);
+					oIconTab.setSelectedKey("4"); // enter to the next tab
+					this._refreshIndicator("100%",100,"Success")
+				} else {
+					oView.byId("thirdInput").setValueState("Error");
+				}
+				
+			},
+			_refreshIndicator: function(sValue, fValue, sState) {
+				var oView = this.getView();
+				oView.byId("indicator").setDisplayValue(sValue);
+				oView.byId("indicator").setPercentValue(fValue);
+				oView.byId("indicator").setState(sState);
+			},
+			back: function() {
+				var oView = this.getView();
+				var oIconTab = oView.byId("iconTabBar");
+				var iCurrentTab = parseInt(oIconTab.getSelectedKey());
+				console.log( iCurrentTab, typeof iCurrentTab);
+				if( iCurrentTab-1 > 0 ){
+					oIconTab.setSelectedKey(iCurrentTab-1 + "");
+				}
+			},
+			_getPopover : function () {
+					if (!this._oPopover) {
+						this._oPopover = sap.ui.xmlfragment(
+						"com.work.attendance.view.SummaryPopover", this);
+						this.getView().addDependent(this._oPopover);
+					}
+					return this._oPopover;
+			},
+			getSummary: function(oEvent) {
+					var oPopover = this._getPopover();
+					var oSource = oEvent.getSource();
+					oPopover.bindElement(this.getView().getModel("attendances").getPath());
+					oPopover.openBy(oEvent.getParameter("domRef"));
 			}
 		});
     }

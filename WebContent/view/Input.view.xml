@@ -69,7 +69,8 @@
 				</contentRight>
 			</Bar>
 		</content>
-		<Panel expandable="true">
+		<Panel expandable="true"
+				headerText="List View">
 			<Table 
 				id="attendanceData"
 				inset="false"
