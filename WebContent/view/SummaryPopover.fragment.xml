@@ -7,7 +7,9 @@
 	   <Dialog
 	      title="Hello User"
 	      contentWidth="820px"
-	      contentHeight="1000px">
+	      contentHeight="1000px"
+	      draggable="true"
+	      resizable="true">
 			<f:SimpleForm id="SimpleFormDisplay354"
 				editable="false"
 				layout="ResponsiveGridLayout"
@@ -19,15 +21,28 @@
 				adjustLabelSpan="false"
 				singleContainerFullSize="false" >
 				<f:content>
+					<ComboBox width="320px" 
+						id="monthSelection" 
+						items="{monthModel>/month}"
+						forceSelection="false"
+						selectionChange="onChangeSelected">
+						<core:Item key="{monthModel>name}" text="{monthModel>name}"  />
+					</ComboBox>
 					<Label text="Month" />
-					<Text text="October"  />
+					<Text text="{monthModel>/selectedMonth/month}"  />
 					<Label text="Total overtime" />
-					<Text text="34 hours" />
+					<Text text="{monthModel>/selectedMonth/overtime}" />
 					<Label text="Most common location" />
-					<Text text="Budapest" />
+					<Text text="{monthModel>/selectedMonth/location}" />
 					<Label text="Country" />
-					<Text text="Hungary" />
+					<Text text="{monthModel>/selectedMonth/country}" />
 				</f:content>
 			</f:SimpleForm>
+<!-- 			<buttons>
+				<Button text="Escape" press="closeDialog"/>
+			</buttons> -->
+			<endButton >
+				<Button text="Escape" press="closeDialog"/>
+			</endButton>
 	   </Dialog>
 </core:FragmentDefinition>

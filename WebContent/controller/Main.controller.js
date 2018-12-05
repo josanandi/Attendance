@@ -24,6 +24,11 @@ sap.ui.define([
 				});
 			    this.getView().setModel(oViewModel,"attendanceModel");
 			    
+	            var oMonthModel = new sap.ui.model.json.JSONModel();			    
+	            this.getView().setModel(oMonthModel,"monthModel");
+	            
+	            this._getMonthModel = this.getView().getModel("monthModel");
+			    
 //				var oOdataModel= new ODataModel("proxy/http/madap8033.accenture.tsap:8001/sap/opu/odata/sap/ZATTENDANCE_SRV"); 
 //				oOdataModel.read("/ATTENDANCESet",
 //						{
@@ -125,14 +130,58 @@ sap.ui.define([
 			},
 			_getDialog : function () {					
 			         if (!this._oDialog) {
-			             this._oDialog = sap.ui.xmlfragment("com.work.attendance.view.SummaryPopover");
+			             this._oDialog = sap.ui.xmlfragment("fragmentId","com.work.attendance.view.SummaryPopover",this);
 			             this.getView().addDependent(this._oDialog);
+
+
 			          }
 			          return this._oDialog;
 			},
 		    onOpenDialog : function () {
 		          this._getDialog().open();
-		       }
+
+		          this._getMonthModel.setProperty("/month", this._getAvailableMonths());
+	              var oSelect = sap.ui.core.Fragment.byId("fragmentId", "monthSelection");
+	              oSelect.setModel(this._getMonthModel);
+
+		    },
+		    closeDialog : function() {
+		    	this._getDialog().close();
+		    },
+		    _getAvailableMonths : function() {
+		    	var oData = this.getView().getModel("attendances").getData().attendances;
+		    	var aMonths= [];
+		    	var oObject;
+		    	for ( var i = 0; i < oData.length; i++){
+		    		var date = new Date(oData[i].start), 
+		    		  locale = "en-us",
+		    		  month = date.toLocaleString(locale, {
+		    		    month: "long"
+		    		  });	
+    			
+					var nPos = aMonths.map(function(e){
+						return e.name;
+					}).indexOf(month);
+		    	
+		    		if(nPos == -1) {
+		    			oObject = { "name" : month };
+		    			aMonths.push(oObject);
+		    		}
+		    	}
+		    	return aMonths;
+		    },
+		    onChangeSelected : function(oEvent) {
+		    	var object = oEvent.getParameter("selectedItem");
+		    	//logika
+		    	var oMonth = {"month" : object.getText(),
+		    					"overtime" : 45,
+		    					"location" : "Budapest",
+		    					"country"  : "Hungary"};
+
+		    	this._getMonthModel .setProperty("/selectedMonth",oMonth);
+		        var oForm = sap.ui.core.Fragment.byId("fragmentId", "SimpleFormDisplay354");
+		        oForm.setModel(this._getMonthModel);
+		    } 
 		});
     }
 );
