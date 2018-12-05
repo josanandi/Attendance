@@ -108,7 +108,7 @@
 			</content>
 			<footer>
 				<Toolbar>
-					<Button text="Get Summary" icon="sap-icon://detail-view" press="getSummary"/>
+					<Button text="Get Summary" icon="sap-icon://detail-view" press="onOpenDialog" id="summaryButton"/>
 					<ToolbarSpacer />
 						<Text text="{attendanceModel>/date}"/>
 				</Toolbar>

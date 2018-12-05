@@ -123,20 +123,16 @@ sap.ui.define([
 					oIconTab.setSelectedKey(iCurrentTab-1 + "");
 				}
 			},
-			_getPopover : function () {
-					if (!this._oPopover) {
-						this._oPopover = sap.ui.xmlfragment(
-						"com.work.attendance.view.SummaryPopover", this);
-						this.getView().addDependent(this._oPopover);
-					}
-					return this._oPopover;
+			_getDialog : function () {					
+			         if (!this._oDialog) {
+			             this._oDialog = sap.ui.xmlfragment("com.work.attendance.view.SummaryPopover");
+			             this.getView().addDependent(this._oDialog);
+			          }
+			          return this._oDialog;
 			},
-			getSummary: function(oEvent) {
-					var oPopover = this._getPopover();
-					var oSource = oEvent.getSource();
-					oPopover.bindElement(this.getView().getModel("attendances").getPath());
-					oPopover.openBy(oEvent.getParameter("domRef"));
-			}
+		    onOpenDialog : function () {
+		          this._getDialog().open();
+		       }
 		});
     }
 );

@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:l="sap.ui.layout"
+		xmlns:core="sap.ui.core"
+		xmlns:f="sap.ui.layout.form">
+		
+	   <Dialog
+	      title="Hello User"
+	      contentWidth="820px"
+	      contentHeight="1000px">
+			<f:SimpleForm id="SimpleFormDisplay354"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				title="Monthly detail view"
+				labelSpanXL="3"
+				labelSpanL="3"
+				labelSpanM="3"
+				labelSpanS="12"
+				adjustLabelSpan="false"
+				singleContainerFullSize="false" >
+				<f:content>
+					<Label text="Month" />
+					<Text text="October"  />
+					<Label text="Total overtime" />
+					<Text text="34 hours" />
+					<Label text="Most common location" />
+					<Text text="Budapest" />
+					<Label text="Country" />
+					<Text text="Hungary" />
+				</f:content>
+			</f:SimpleForm>
+	   </Dialog>
+</core:FragmentDefinition>
